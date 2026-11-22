@@ -8,6 +8,7 @@ Byotfast reúne perfiles de cierre de ventanas, lanzadores con atajos de KDE y 1
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/b5a65268-62a8-4bcc-a9b7-3bca97f74daa" />
 <img width="1509" height="669" alt="Captura de pantalla_20261122_123059" src="https://github.com/user-attachments/assets/d1bb9f7c-5e8a-42d2-a595-1b4c912abe9d" />
 <img width="530" height="326" alt="Captura de pantalla_20261122_123222" src="https://github.com/user-attachments/assets/6216985d-ffc1-4cf8-99dd-acac61bc16f1" />
+<img width="584" height="367" alt="image" src="https://github.com/user-attachments/assets/e069b364-f30d-4a02-85e7-15bb67766a80" />
 <img width="639" height="226" alt="Captura de pantalla_20261122_123233" src="https://github.com/user-attachments/assets/fe7fb048-3b44-423d-a6c6-5c0a4a54779b" />
 <img width="1165" height="496" alt="Captura de pantalla_20261122_123254" src="https://github.com/user-attachments/assets/b8968d62-ac3c-4af0-b8c9-c059bdf7fc6c" />
 <img width="1066" height="818" alt="Captura de pantalla_20261122_121050" src="https://github.com/user-attachments/assets/8d121cae-7e96-4598-827f-2693d6134c6b" />
