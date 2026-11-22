@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.discos",
+        "Name": "Byotfast · Espacio en disco",
+        "Description": "Espacio libre de unidades montadas",
+        "Icon": "org.local.Byotfast.Discos",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

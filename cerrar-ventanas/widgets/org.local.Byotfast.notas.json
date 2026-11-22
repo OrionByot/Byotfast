@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.notas",
+        "Name": "Byotfast · Notas",
+        "Description": "Nota editable guardada en el escritorio",
+        "Icon": "org.local.Byotfast.Notas",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

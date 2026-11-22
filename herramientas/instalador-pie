@@ -1,0 +1,6 @@
+PAQUETE
+    mostrar --error 'No se pudo leer el paquete de instalación.'
+    exit 1
+fi
+
+"$temporal/cerrar-ventanas/instalar"

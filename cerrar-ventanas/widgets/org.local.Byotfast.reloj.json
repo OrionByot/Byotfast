@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.reloj",
+        "Name": "Byotfast · Reloj",
+        "Description": "Hora y fecha locales",
+        "Icon": "org.local.Byotfast.Reloj",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

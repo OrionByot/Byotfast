@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.controles",
+        "Name": "Byotfast · Controles rápidos",
+        "Description": "Conectividad, sonido, pantalla y energía",
+        "Icon": "org.local.Byotfast.Controles",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

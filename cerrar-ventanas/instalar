@@ -1,0 +1,100 @@
+#!/bin/bash
+set -euo pipefail
+
+instalar_archivos() {
+    origen=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+    destino="${XDG_DATA_HOME:-$HOME/.local/share}/cerrar-ventanas"
+    
+    for requisito in qdbus6 python3; do
+        if ! command -v "$requisito" >/dev/null; then
+            printf 'Falta el requisito %s.\n' "$requisito" >&2
+            exit 1
+        fi
+    done
+    /usr/bin/python3 -c 'import gi; gi.require_version("Gtk", "4.0"); gi.require_version("Adw", "1"); from gi.repository import Gtk, Adw' || {
+        printf 'Instala PyGObject para Python 3, GTK 4 y libadwaita con tu gestor de paquetes.\n' >&2
+        exit 1
+    }
+    
+    install -d -- "$destino" || exit 1
+    if [[ "$origen" != "$destino" ]]; then
+        install -m 755 -- "$origen/cerrar-ventanas.sh" "$origen/ajustes-cerrar-ventanas.py" "$destino/" || exit 1
+        install -m 644 -- "$origen/atajos.py" "$origen/limpieza.py" "$origen/perfiles.py" "$destino/" || exit 1
+        install -m 644 -- "$origen/widgets.py" "$origen/widget_datos.py" "$origen/controles_rapidos.py" "$origen/rendimiento.py" "$destino/" || exit 1
+    fi
+    datos="${XDG_DATA_HOME:-$HOME/.local/share}"
+    iconos="$datos/icons/hicolor/scalable/apps"
+    install -d -- "$iconos" || exit 1
+    for icono in Perfil Controles Papelera Reloj Calendario Notas Rendimiento Temporizador Tareas Bateria Clima Musica Musicapausa Discos Calculadora Fotos Busquedagoogle; do
+        install -m 644 -- "$origen/widgets/${icono,,}.svg" "$iconos/org.local.Byotfast.$icono.svg" || exit 1
+        install -m 644 -- "$origen/widgets/${icono,,}.svg" "$iconos/org.local.Byotfast.$icono-symbolic.svg" || exit 1
+    done
+    for id in org.local.Byotfast.{controles,perfilactivo,revisarlimpieza,reloj,relojmoderno,calendario,notas,rendimiento,temporizador,tareas,bateria,clima,musica,discos,calculadora,fotos,busquedagoogle}; do
+        widget="$datos/plasma/plasmoids/$id"
+        install -d -- "$widget/contents/ui" "$widget/contents/config" || exit 1
+        install -m 644 -- "$origen/widgets/$id.json" "$widget/metadata.json" || exit 1
+        principal=utilidades.qml
+        case "$id" in
+            *.perfilactivo|*.revisarlimpieza) principal=main.qml ;;
+        esac
+        install -m 644 -- "$origen/widgets/$principal" "$widget/contents/ui/main.qml" || exit 1
+        install -m 644 -- "$origen/widgets/IconoMedia.qml" "$origen/widgets/MusicaPanel.qml" "$origen/widgets/GrupoCentrado.qml" "$origen/widgets/Anillo.qml" "$origen/widgets/DatosWidgets.qml" "$origen/widgets/TarjetaUtilidad.qml" "$origen/widgets/ControlesRapidos.qml" "$origen/widgets/"controles-{bluetooth,wifi,silencio,noche,volumen,mudo}.svg "$origen/widgets/Flecha.qml" "$origen/widgets/AccesoPanel.qml" "$origen/widgets/FondoDifuso.qml" "$origen/widgets/BotonTamano.qml" "$origen/widgets/Arrastre.qml" "$origen/widgets/Temporizador.qml" "$widget/contents/ui/" || exit 1
+        install -m 644 -- "$origen/widgets/MarcoFoto.qml" "$origen/widgets/BusquedaGoogle.qml" "$origen/widgets/google-marca.svg" "$widget/contents/ui/" || exit 1
+        install -m 644 -- "$origen/widgets/config.xml" "$widget/contents/config/main.xml" || exit 1
+    done
+    printf 'Comando de cierre: %s\n' "$destino/cerrar-ventanas.sh"
+    exec /usr/bin/python3 "$destino/ajustes-cerrar-ventanas.py" --instalar-acceso
+}
+
+mostrar() {
+    local tipo=$1 mensaje=$2
+    if command -v kdialog >/dev/null && kdialog --title 'Instalar Byotfast' "$tipo" "$mensaje"; then
+        return
+    fi
+    printf '%s\n' "$mensaje"
+}
+
+hay_widgets_byotfast() {
+    local config="${XDG_CONFIG_HOME:-$HOME/.config}/plasma-org.kde.plasma.desktop-appletsrc"
+    local linea
+    [[ -r "$config" ]] || return 1
+    while IFS= read -r linea; do
+        case "$linea" in
+            plugin=org.local.Byotfast.*) return 0 ;;
+        esac
+    done < "$config"
+    return 1
+}
+
+recargar_widgets() {
+    local resultado=$1
+    hay_widgets_byotfast || return 1
+    if ! command -v systemctl >/dev/null ||
+        ! systemctl --user is-active --quiet plasma-plasmashell.service; then
+        mostrar --msgbox "$resultado"$'\n\nVuelve a iniciar sesión en KDE para cargar los widgets actualizados.'
+        return 0
+    fi
+    if systemctl --user restart plasma-plasmashell.service; then
+        mostrar --msgbox "$resultado"$'\n\nPlasma se recargó para actualizar los widgets.'
+    else
+        mostrar --error 'Byotfast se actualizó, pero Plasma no se pudo recargar. Vuelve a iniciar sesión en KDE para cargar los widgets actualizados.'
+    fi
+    return 0
+}
+
+destino="${XDG_DATA_HOME:-$HOME/.local/share}/cerrar-ventanas"
+primera_instalacion=false
+if [[ ! -f "$destino/ajustes-cerrar-ventanas.py" ]]; then
+    primera_instalacion=true
+fi
+
+if resultado=$(instalar_archivos 2>&1); then
+    recargar_widgets "$resultado" || mostrar --msgbox "$resultado"
+    if [[ "$primera_instalacion" == true && ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/cerrar-ventanas/ubicacion.json" ]] &&
+        [[ -n "${WAYLAND_DISPLAY:-}${DISPLAY:-}" ]]; then
+        "$destino/ajustes-cerrar-ventanas.py" </dev/null >/dev/null 2>&1 &
+    fi
+else
+    mostrar --error "$resultado"
+    exit 1
+fi

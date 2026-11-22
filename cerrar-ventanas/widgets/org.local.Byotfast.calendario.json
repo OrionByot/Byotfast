@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.calendario",
+        "Name": "Byotfast · Calendario",
+        "Description": "Calendario mensual y notificaciones de Plasma",
+        "Icon": "org.local.Byotfast.Calendario",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

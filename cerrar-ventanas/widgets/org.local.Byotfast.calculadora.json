@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.calculadora",
+        "Name": "Byotfast · Calculadora",
+        "Description": "Operaciones básicas con historial",
+        "Icon": "org.local.Byotfast.Calculadora",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

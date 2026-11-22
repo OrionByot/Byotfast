@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.bateria",
+        "Name": "Byotfast · Batería",
+        "Description": "Carga del equipo y de periféricos",
+        "Icon": "org.local.Byotfast.Bateria",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

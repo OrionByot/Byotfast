@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+
+mostrar() {
+    local tipo=$1 mensaje=$2
+    if command -v kdialog >/dev/null && kdialog --title 'Instalar Byotfast' "$tipo" "$mensaje"; then
+        return
+    fi
+    printf '%s\n' "$mensaje"
+}
+
+temporal=$(mktemp -d)
+trap 'rm -rf -- "$temporal"' EXIT
+
+if ! base64 --decode <<'PAQUETE' | tar -xz -C "$temporal"; then

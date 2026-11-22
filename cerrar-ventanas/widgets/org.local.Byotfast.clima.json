@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.clima",
+        "Name": "Byotfast · Clima",
+        "Description": "Temperatura y pronóstico local",
+        "Icon": "org.local.Byotfast.Clima",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

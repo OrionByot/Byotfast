@@ -1,0 +1,73 @@
+Byotfast para Linux · KDE Plasma 6 / Wayland
+
+INSTALACIÓN
+Extrae el archivo completo y haz doble clic en el archivo instalar desde Dolphin.
+Si Dolphin muestra «Ejecutar», selecciónalo. Se instala para tu usuario, sin sudo. Requiere qdbus6,
+Python 3, PyGObject, GTK 4 y libadwaita. Vaciar la papelera requiere ktrash6. El instalador muestra la ruta del comando.
+El acceso con el cohete aparece como «Byotfast». Si ya tienes widgets de
+Byotfast, el instalador recarga Plasma para aplicar los cambios. El panel
+puede desaparecer unos segundos durante la recarga.
+
+USO
+Byotfast abre en la vista de iconos. El desplegable junto al buscador permite
+elegir un perfil. La vista muestra las apps que se quedan abiertas, las
+que tienen ventanas abiertas y el catálogo completo. Pulsa una tarjeta o
+casilla para cambiar la permanencia en el perfil seleccionado.
+
+En el engranaje puedes crear perfiles y configurar el alcance de cada uno,
+incluida la opción de conservar la ventana activa. El atajo general usa
+el perfil activo. El perfil anterior «Predeterminado» se llama «Personal»
+y conserva sus apps protegidas. Los atajos individuales retirados quedan
+registrados en atajos-por-perfil-anteriores.json dentro de la carpeta de
+configuración de Byotfast.
+
+Para cambiar un atajo, pulsa «Capturar teclas» y presiona la combinación.
+KDE la registra de inmediato si está libre. Esc cancela la captura.
+Meta es la tecla Windows. Usa Bloq Num para los atajos con NumPad.
+
+El engranaje también contiene el tema, el acento y el atajo de limpieza.
+El tema y el acento se guardan al seleccionarlos. Liquid Glass usa degradados en las ventanas de Byotfast. Los widgets del
+escritorio difuminan el fondo de Plasma cuando el renderizador lo permite.
+
+En la primera instalación, el instalador intenta asignar Ctrl+Meta+NumPad 0
+para cerrar ventanas y Ctrl+Meta+NumPad 1 para limpiar archivos. Puedes
+cambiar o quitar ambos atajos en Ajustes. Si alguna combinación está en
+uso, elige otra. Las actualizaciones respetan los atajos que hayas elegido.
+El atajo y el comando solicitan a KWin el cierre normal de las ventanas
+que no estén protegidas. Las aplicaciones pueden pedirte que guardes cambios.
+
+LIMPIEZA
+En Ajustes → Limpiar archivos, marca qué quieres limpiar y asigna un atajo
+independiente. Las casillas empiezan desmarcadas.
+Los temporales se limitan a archivos regulares sueltos de tu usuario en
+/tmp y /var/tmp, con más de 7 días desde el último acceso y modificación.
+La papelera se vacía de forma permanente mediante ktrash6. El comando de
+limpieza lee las opciones guardadas cada vez que se ejecuta. Si activas
+«Mostrar vista previa», verás el tamaño de tus temporales, incluso los que
+están en subcarpetas, y cuánto se puede borrar con la regla de siete días.
+Las ventanas de detalle de temporales y papelera se pueden redimensionar.
+Desmarca los elementos que quieras conservar en esa limpieza. Los temporales
+fuera de las reglas de borrado llevan una etiqueta con el motivo.
+La vista previa de la papelera usa kioclient (KDE KIO).
+
+WIDGETS DE PLASMA
+Abre el catálogo desde el engranaje de Byotfast. Puedes añadir Perfil activo
+o Limpieza al escritorio desde el catálogo. Para colocarlos en el panel,
+busca «Byotfast» en «Añadir elementos gráficos» de Plasma.
+En el escritorio, usa el botón discreto de la cabecera para minimizar o
+restaurar cada widget. Mantén Ctrl y arrastra con el botón izquierdo para
+moverlo en cualquiera de los dos tamaños. Si está minimizado, pulsa su
+nombre o icono para abrir sus controles en un desplegable.
+Para moverlo dentro del panel, usa el modo de edición de Plasma.
+Limpieza actualiza los tamaños cada minuto y después de ejecutar su acción.
+En Ajustes → Limpiar archivos, «Mostrar vista previa» controla también el
+botón del widget. Con la opción activa, el botón dice «Revisar limpieza».
+Con la opción desactivada, «Limpiar» actúa sobre las categorías marcadas.
+Desmarca «Mostrar botón de limpieza en el widget» para usar solo el atajo.
+
+MIGRACIÓN
+Lleva el archivo comprimido al otro equipo y abre instalar con doble clic.
+Los perfiles se guardan en cerrar-ventanas/perfiles.json dentro de
+XDG_CONFIG_HOME (por defecto ~/.config). Las versiones anteriores guardaban
+las excepciones en excepciones.json. El instalador las incorpora al perfil
+Predeterminado. KDE guarda las combinaciones de teclas por separado.

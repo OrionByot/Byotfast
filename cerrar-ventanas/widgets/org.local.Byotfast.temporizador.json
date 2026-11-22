@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.temporizador",
+        "Name": "Byotfast · Temporizador",
+        "Description": "Cuenta regresiva con pausa y aviso",
+        "Icon": "org.local.Byotfast.Temporizador",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

@@ -1,0 +1,12 @@
+{
+  "KPlugin": {
+    "Id": "org.local.Byotfast.revisarlimpieza",
+    "Name": "Byotfast · Limpieza",
+    "Description": "Consulta el espacio y abre la vista previa de limpieza",
+    "Icon": "org.local.Byotfast.Papelera",
+    "Version": "1.0",
+    "Category": "Utilities"
+  },
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

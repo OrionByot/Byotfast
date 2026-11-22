@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.musica",
+        "Name": "Byotfast · Música",
+        "Description": "Controles del reproductor multimedia",
+        "Icon": "org.local.Byotfast.Musica",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

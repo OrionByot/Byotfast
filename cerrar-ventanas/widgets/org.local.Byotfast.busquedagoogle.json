@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.local.Byotfast.busquedagoogle",
+        "Name": "Byotfast · Búsqueda de Google",
+        "Description": "Busca en Google con sugerencias al escribir",
+        "Icon": "org.local.Byotfast.Busquedagoogle",
+        "Version": "1.0",
+        "Category": "Utilities"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
