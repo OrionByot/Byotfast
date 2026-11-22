@@ -2,6 +2,16 @@
 
 Byotfast reúne perfiles de cierre de ventanas, lanzadores con atajos de KDE y 17 widgets para el escritorio y el panel de Plasma. Desarrollado por Orinson Tuanama.
 
+## Capturas de pantalla
+<img width="1266" height="957" alt="Captura de pantalla_20261122_121905" src="https://github.com/user-attachments/assets/9ff6c167-a6f8-43f3-81ee-345c04e6717d" />
+<img width="1246" height="954" alt="Captura de pantalla_20261122_121843" src="https://github.com/user-attachments/assets/cda9ce1d-619f-445f-a9b9-99a9cf0496b5" />
+<img width="1066" height="818" alt="Captura de pantalla_20261122_121050" src="https://github.com/user-attachments/assets/8d121cae-7e96-4598-827f-2693d6134c6b" />
+<img width="999" height="770" alt="Captura de pantalla_20261122_121145" src="https://github.com/user-attachments/assets/be455be4-6c55-4da0-919a-699123d5023d" />
+<img width="999" height="773" alt="Captura de pantalla_20261122_121200" src="https://github.com/user-attachments/assets/dae09813-4fad-42af-94fd-a2602385c476" />
+<img width="967" height="720" alt="Captura de pantalla_20261122_121233" src="https://github.com/user-attachments/assets/1f5771ed-c621-4ac6-8125-eef3d4794ca9" />
+<img width="971" height="757" alt="Captura de pantalla_20261122_121816" src="https://github.com/user-attachments/assets/0cf14669-ca39-4b01-9d3a-57ac7f147dd8" />
+
+
 ## Instalar en KDE Plasma
 
 Extrae el ZIP, entra en la carpeta `Byotfast` y ejecuta el instalador desde una terminal de tu sesión gráfica.
